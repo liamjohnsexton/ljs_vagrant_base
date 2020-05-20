@@ -1,0 +1,14 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+172.35.1.100         puppetmaster.home       puppetmaster    puppet.home	puppet
+
+172.35.1.101         controller-01.home            controller-01
+172.35.1.102         agent-01.home            agent-01
+172.35.1.103         agent-02.home            agent-02
+
+172.35.1.104	     master-01.home	      master-01
+172.35.1.105	     master-02.home	      master-02
+
+172.35.1.106	     win-01.home	      win-01

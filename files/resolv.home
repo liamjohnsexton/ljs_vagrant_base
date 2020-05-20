@@ -1,0 +1,4 @@
+# DNS config for Puppet Lab
+search home pe
+nameserver 8.8.8.8
+nameserver 127.0.0.1

@@ -1,0 +1,5 @@
+#!/bin/bash
+# this is my puppet apply script
+
+PUPATH=/etc/puppetlabs/code/environments/production
+/opt/puppetlabs/bin/puppet apply ${PUPATH}/manifests/site.pp --modulepath=${PUPATH}/modules 

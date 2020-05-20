@@ -1,0 +1,129 @@
+nodes:
+  - name: puppet-01
+    hostname: puppet
+    box: geerlingguy/centos7
+    aliases:
+      - puppetmaster
+      - puppet.home
+    cpus: 2
+    ip: 172.35.1.100
+    memory: 6144
+    ports:
+      - guest: 80
+        host: 11080
+      - guest: 443 
+        host: 11043
+      - guest: 4433
+        host: 4433
+      - guest: 8410
+        host: 8410
+      - guest: 8143
+        host: 8143
+      - guest: 8170
+        host: 8170
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_node.sh'
+  - name: master-01
+    hostname: master-01
+    box: geerlingguy/centos7
+    aliases:
+      - master-01.home
+    cpus: 1
+    ip: 172.35.1.104
+    memory: 1024
+    ports:
+      - guest: 80
+        host: 12080
+      - guest: 443
+        host: 12043
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_node.sh'
+  - name: master-02
+    hostname: master-02
+    box: geerlingguy/centos7
+    aliases:
+      - master-02.home
+    cpus: 1
+    ip: 172.35.1.105
+    memory: 1024
+    ports:
+      - guest: 80
+        host: 13080
+      - guest: 443
+        host: 13043
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_node.sh'
+  - name: controller-01
+    hostname: controller-01
+    box: geerlingguy/centos7
+    aliases:
+      - controller.home
+    cpus: 1
+    ip: 172.35.1.101
+    memory: 1024
+    ports:
+      - guest: 80
+        host: 14080
+      - guest: 443
+        host: 14043
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_node.sh'
+  - name: agent-01
+    hostname: agent-01
+    box: geerlingguy/centos7
+    aliases:
+      - agent-01.home
+    cpus: 1
+    ip: 172.35.1.102
+    memory: 1024
+    ports:
+      - guest: 80
+        host: 15080
+      - guest: 443
+        host: 15043
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_node.sh'
+  - name: agent-02
+    hostname: agent-02
+    box: geerlingguy/centos7
+    aliases:
+      - agent-02.home
+    cpus: 1
+    ip: 172.35.1.103
+    memory: 1024
+    ports:
+      - guest: 80
+        host: 16080
+      - guest: 443
+        host: 16043
+      - guest: 4000
+        host: 4000
+    synced_folders:
+      - src: 'files'
+        dst: '/var/tmp/files'
+    provision: 'bin/build_nonode.sh'
+  - name: win-01
+    hostname: win-01
+    box: 'gusztavvargadr/windows-10'
+    aliases:
+      - win-01.home
+    cpus: 1
+    ip: 172.35.1.104
+    memory: 1024
+    ports:
+      - guest: 22
+        host: 2215
+    synced_folders:
+      - src: 'files'
+        dst: '/tmp'
+    provision: 'bin/build_nonode.sh'
